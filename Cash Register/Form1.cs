@@ -12,26 +12,30 @@ namespace Cash_Register
 {
     public partial class Form1 : Form
     {
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-
-
-        }
+        const double BURGER_COST = 15.99;
+        const double FRIES_COST = 9.99;
+        const double DRINK_COST = 5.99;
+        const double tax = 0.13;
+        double subtotal;
+        double total;
         public Form1()
         {
             InitializeComponent();
-        }
-        private void Form1_Click(object sender, EventArgs e)
-        {
-            Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
-            SolidBrush blackBrush = new SolidBrush(Color.Black);
 
-            formGraphics.FillRectangle(blackBrush, 30, 30, 100, 200);
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         private void calculateTotalButton_Click(object sender, EventArgs e)
         {
+            Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
+            SolidBrush whiteBrush = new SolidBrush(Color.White);
 
+            formGraphics.FillRectangle(whiteBrush, 0, 290, 300, 10);
         }
+
+
     }
 }

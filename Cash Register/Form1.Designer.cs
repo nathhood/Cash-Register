@@ -70,13 +70,14 @@
             this.calculateTotalButton.Name = "calculateTotalButton";
             this.calculateTotalButton.Size = new System.Drawing.Size(220, 40);
             this.calculateTotalButton.TabIndex = 3;
-            this.calculateTotalButton.Text = "Calculate Total";
+            this.calculateTotalButton.Text = "Calculate Totals";
             this.calculateTotalButton.UseVisualStyleBackColor = true;
             this.calculateTotalButton.Click += new System.EventHandler(this.calculateTotalButton_Click);
             // 
             // numberDrinksLabel
             // 
             this.numberDrinksLabel.AutoSize = true;
+            this.numberDrinksLabel.ForeColor = System.Drawing.Color.White;
             this.numberDrinksLabel.Location = new System.Drawing.Point(12, 123);
             this.numberDrinksLabel.Name = "numberDrinksLabel";
             this.numberDrinksLabel.Size = new System.Drawing.Size(118, 17);
@@ -86,6 +87,7 @@
             // numberBurgersLabel
             // 
             this.numberBurgersLabel.AutoSize = true;
+            this.numberBurgersLabel.ForeColor = System.Drawing.Color.White;
             this.numberBurgersLabel.Location = new System.Drawing.Point(12, 35);
             this.numberBurgersLabel.Name = "numberBurgersLabel";
             this.numberBurgersLabel.Size = new System.Drawing.Size(128, 17);
@@ -95,6 +97,7 @@
             // numberFriesLabel
             // 
             this.numberFriesLabel.AutoSize = true;
+            this.numberFriesLabel.ForeColor = System.Drawing.Color.White;
             this.numberFriesLabel.Location = new System.Drawing.Point(12, 78);
             this.numberFriesLabel.Name = "numberFriesLabel";
             this.numberFriesLabel.Size = new System.Drawing.Size(109, 17);
@@ -104,6 +107,7 @@
             // subtotalLabel
             // 
             this.subtotalLabel.AutoSize = true;
+            this.subtotalLabel.ForeColor = System.Drawing.Color.White;
             this.subtotalLabel.Location = new System.Drawing.Point(12, 255);
             this.subtotalLabel.Name = "subtotalLabel";
             this.subtotalLabel.Size = new System.Drawing.Size(60, 17);
@@ -113,6 +117,7 @@
             // taxLabel
             // 
             this.taxLabel.AutoSize = true;
+            this.taxLabel.ForeColor = System.Drawing.Color.White;
             this.taxLabel.Location = new System.Drawing.Point(12, 293);
             this.taxLabel.Name = "taxLabel";
             this.taxLabel.Size = new System.Drawing.Size(31, 17);
@@ -122,6 +127,7 @@
             // totalButton
             // 
             this.totalButton.AutoSize = true;
+            this.totalButton.ForeColor = System.Drawing.Color.White;
             this.totalButton.Location = new System.Drawing.Point(12, 332);
             this.totalButton.Name = "totalButton";
             this.totalButton.Size = new System.Drawing.Size(40, 17);
@@ -130,6 +136,7 @@
             // 
             // subTotalOutput
             // 
+            this.subTotalOutput.ForeColor = System.Drawing.Color.White;
             this.subTotalOutput.Location = new System.Drawing.Point(270, 255);
             this.subTotalOutput.Name = "subTotalOutput";
             this.subTotalOutput.Size = new System.Drawing.Size(100, 23);
@@ -138,6 +145,7 @@
             // 
             // taxOutput
             // 
+            this.taxOutput.ForeColor = System.Drawing.Color.White;
             this.taxOutput.Location = new System.Drawing.Point(270, 293);
             this.taxOutput.Name = "taxOutput";
             this.taxOutput.Size = new System.Drawing.Size(100, 23);
@@ -145,6 +153,7 @@
             // 
             // totalOutput
             // 
+            this.totalOutput.ForeColor = System.Drawing.Color.White;
             this.totalOutput.Location = new System.Drawing.Point(270, 332);
             this.totalOutput.Name = "totalOutput";
             this.totalOutput.Size = new System.Drawing.Size(100, 23);
@@ -155,7 +164,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 536);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(682, 536);
             this.Controls.Add(this.totalOutput);
             this.Controls.Add(this.taxOutput);
             this.Controls.Add(this.subTotalOutput);
@@ -172,7 +182,6 @@
             this.Name = "Form1";
             this.Text = "BLob\'s Burger Bananza";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
