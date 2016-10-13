@@ -16,16 +16,17 @@ namespace Cash_Register
         const double FRIES_COST = 9.99;
         const double DRINK_COST = 5.99;
         const double tax = 0.13;
+        int burgerNumber;
+        int fryNumber;
+        int drinkNumber;
         double subtotal;
         double total;
+        double tendered;
+        double change;
         public Form1()
         {
             InitializeComponent();
 
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void calculateTotalButton_Click(object sender, EventArgs e)
@@ -33,9 +34,17 @@ namespace Cash_Register
             Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
             SolidBrush whiteBrush = new SolidBrush(Color.White);
 
-            formGraphics.FillRectangle(whiteBrush, 0, 290, 300, 10);
+            //convert all the textboxes to a variable
+            burgerNumber = Convert.ToInt32(burgersInput.Text);
+            fryNumber = Convert.ToInt32(friesInput.Text);
+            drinkNumber = Convert.ToInt32(burgersInput.Text);
+
+            subtotal = 
+
+
+
+
+            formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
         }
-
-
     }
 }
