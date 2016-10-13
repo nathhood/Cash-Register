@@ -228,7 +228,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(390, 536);
+            this.ClientSize = new System.Drawing.Size(661, 536);
             this.Controls.Add(this.printReceiptButton);
             this.Controls.Add(this.changeOutput);
             this.Controls.Add(this.label1);
