@@ -134,6 +134,7 @@ namespace Cash_Register
             else
             {
                 changeOutput.Text = "Not enough funds";
+
             }
         }
 
