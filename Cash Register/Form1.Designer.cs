@@ -150,7 +150,7 @@
             this.subTotalOutput.Name = "subTotalOutput";
             this.subTotalOutput.Size = new System.Drawing.Size(100, 23);
             this.subTotalOutput.TabIndex = 10;
-            this.subTotalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.subTotalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // taxOutput
             // 
@@ -159,6 +159,7 @@
             this.taxOutput.Name = "taxOutput";
             this.taxOutput.Size = new System.Drawing.Size(100, 23);
             this.taxOutput.TabIndex = 11;
+            this.taxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // totalOutput
             // 
@@ -167,7 +168,7 @@
             this.totalOutput.Name = "totalOutput";
             this.totalOutput.Size = new System.Drawing.Size(100, 23);
             this.totalOutput.TabIndex = 12;
-            this.totalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.totalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tenderedInput
             // 
@@ -195,6 +196,7 @@
             this.changeButton.TabIndex = 15;
             this.changeButton.Text = "Calculate Change";
             this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // label1
             // 
@@ -208,11 +210,11 @@
             // 
             // changeOutput
             // 
+            this.changeOutput.ForeColor = System.Drawing.Color.White;
             this.changeOutput.Location = new System.Drawing.Point(270, 426);
             this.changeOutput.Name = "changeOutput";
             this.changeOutput.Size = new System.Drawing.Size(100, 23);
             this.changeOutput.TabIndex = 17;
-            this.changeOutput.Text = "label2";
             // 
             // printReceiptButton
             // 
@@ -222,6 +224,7 @@
             this.printReceiptButton.TabIndex = 18;
             this.printReceiptButton.Text = "Print Receipt";
             this.printReceiptButton.UseVisualStyleBackColor = true;
+            this.printReceiptButton.Click += new System.EventHandler(this.printReceiptButton_Click);
             // 
             // Form1
             // 
