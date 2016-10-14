@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Cash_Register
 {
@@ -37,25 +38,103 @@ namespace Cash_Register
             //convert all the textboxes to a variable
             burgerNumber = Convert.ToInt32(burgersInput.Text);
             fryNumber = Convert.ToInt32(friesInput.Text);
-            drinkNumber = Convert.ToInt32(burgersInput.Text);
+            drinkNumber = Convert.ToInt32(drinksInput.Text);
 
-            subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
-            subTotalOutput.Text = subtotal.ToString("C");
+            if (burgerNumber < 0)
+            {
+                subTotalOutput.Text = "please imput whole numbers only";
+                taxOutput.Text = "please imput whole numbers only";
+                totalOutput.Text = "please imput whole numbers only";
+            }
 
-            tax = subtotal * 0.13;
-            taxOutput.Text = tax.ToString("C");
+            else if (fryNumber < 0)
+            {
+                subTotalOutput.Text = "please imput whole numbers only";
+                taxOutput.Text = "please imput whole numbers only";
+                totalOutput.Text = "please imput whole numbers only";
+            }
 
-            total = subtotal + tax;
-            totalOutput.Text = total.ToString("C");
+            else if (drinkNumber < 0)
+            {
+                subTotalOutput.Text = "please imput whole numbers only";
+                taxOutput.Text = "please imput whole numbers only";
+                totalOutput.Text = "please imput whole numbers only";
+            }
 
-            formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
+            else if (burgerNumber >= 0)
+            {
+                subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
+                subTotalOutput.Text = subtotal.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                tax = subtotal * 0.13;
+                taxOutput.Text = tax.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                total = subtotal + tax;
+                totalOutput.Text = total.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
+            }
+
+            else if (fryNumber >= 0)
+            {
+                subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
+                subTotalOutput.Text = subtotal.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                tax = subtotal * 0.13;
+                taxOutput.Text = tax.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                total = subtotal + tax;
+                totalOutput.Text = total.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
+            }
+
+            else if (drinkNumber >= 0)
+            {
+                subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
+                subTotalOutput.Text = subtotal.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                tax = subtotal * 0.13;
+                taxOutput.Text = tax.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                total = subtotal + tax;
+                totalOutput.Text = total.ToString("C");
+                Refresh();
+                Thread.Sleep(500);
+
+                formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
+            }
         }
 
         private void changeButton_Click(object sender, EventArgs e)
         {
             tendered = Convert.ToDouble(tenderedInput.Text);
-            change = tendered - total;
-            changeOutput.Text = change.ToString("C");
+            total = subtotal + tax;
+
+            if (tendered > total)
+            { change = tendered - total;
+                changeOutput.Text = change.ToString("C");
+            }
+            else
+            {
+                changeOutput.Text = "Not enough funds";
+            }
         }
 
         private void printReceiptButton_Click(object sender, EventArgs e)
@@ -63,7 +142,9 @@ namespace Cash_Register
             Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
             SolidBrush whiteBrush = new SolidBrush(Color.White);
 
-            formGraphics.FillRectangle(whiteBrush, 290, 10, 197, 417);
+            
+
+            formGraphics.FillRectangle(whiteBrush, 300, 10, 187, 417);
         }
     }
 }

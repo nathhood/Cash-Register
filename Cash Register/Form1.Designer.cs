@@ -145,28 +145,34 @@
             // 
             // subTotalOutput
             // 
+            this.subTotalOutput.AutoSize = true;
+            this.subTotalOutput.BackColor = System.Drawing.Color.Transparent;
             this.subTotalOutput.ForeColor = System.Drawing.Color.White;
             this.subTotalOutput.Location = new System.Drawing.Point(270, 208);
             this.subTotalOutput.Name = "subTotalOutput";
-            this.subTotalOutput.Size = new System.Drawing.Size(100, 23);
+            this.subTotalOutput.Size = new System.Drawing.Size(0, 17);
             this.subTotalOutput.TabIndex = 10;
             this.subTotalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // taxOutput
             // 
+            this.taxOutput.AutoSize = true;
+            this.taxOutput.BackColor = System.Drawing.Color.Transparent;
             this.taxOutput.ForeColor = System.Drawing.Color.White;
             this.taxOutput.Location = new System.Drawing.Point(270, 246);
             this.taxOutput.Name = "taxOutput";
-            this.taxOutput.Size = new System.Drawing.Size(100, 23);
+            this.taxOutput.Size = new System.Drawing.Size(0, 17);
             this.taxOutput.TabIndex = 11;
             this.taxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // totalOutput
             // 
+            this.totalOutput.AutoSize = true;
+            this.totalOutput.BackColor = System.Drawing.Color.Transparent;
             this.totalOutput.ForeColor = System.Drawing.Color.White;
             this.totalOutput.Location = new System.Drawing.Point(270, 285);
             this.totalOutput.Name = "totalOutput";
-            this.totalOutput.Size = new System.Drawing.Size(100, 23);
+            this.totalOutput.Size = new System.Drawing.Size(0, 17);
             this.totalOutput.TabIndex = 12;
             this.totalOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -210,17 +216,19 @@
             // 
             // changeOutput
             // 
+            this.changeOutput.AutoSize = true;
             this.changeOutput.ForeColor = System.Drawing.Color.White;
             this.changeOutput.Location = new System.Drawing.Point(270, 426);
             this.changeOutput.Name = "changeOutput";
-            this.changeOutput.Size = new System.Drawing.Size(100, 23);
+            this.changeOutput.Size = new System.Drawing.Size(0, 17);
             this.changeOutput.TabIndex = 17;
             // 
             // printReceiptButton
             // 
+            this.printReceiptButton.AutoSize = true;
             this.printReceiptButton.Location = new System.Drawing.Point(84, 466);
             this.printReceiptButton.Name = "printReceiptButton";
-            this.printReceiptButton.Size = new System.Drawing.Size(220, 26);
+            this.printReceiptButton.Size = new System.Drawing.Size(220, 27);
             this.printReceiptButton.TabIndex = 18;
             this.printReceiptButton.Text = "Print Receipt";
             this.printReceiptButton.UseVisualStyleBackColor = true;
