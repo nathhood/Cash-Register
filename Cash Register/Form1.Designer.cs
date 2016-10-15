@@ -47,6 +47,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.changeOutput = new System.Windows.Forms.Label();
             this.printReceiptButton = new System.Windows.Forms.Button();
+            this.invalidOrderLabel = new System.Windows.Forms.Label();
+            this.newOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // burgersInput
@@ -234,12 +236,32 @@
             this.printReceiptButton.UseVisualStyleBackColor = true;
             this.printReceiptButton.Click += new System.EventHandler(this.printReceiptButton_Click);
             // 
+            // invalidOrderLabel
+            // 
+            this.invalidOrderLabel.ForeColor = System.Drawing.Color.White;
+            this.invalidOrderLabel.Location = new System.Drawing.Point(84, 496);
+            this.invalidOrderLabel.Name = "invalidOrderLabel";
+            this.invalidOrderLabel.Size = new System.Drawing.Size(220, 23);
+            this.invalidOrderLabel.TabIndex = 19;
+            // 
+            // newOrderButton
+            // 
+            this.newOrderButton.Location = new System.Drawing.Point(397, 468);
+            this.newOrderButton.Name = "newOrderButton";
+            this.newOrderButton.Size = new System.Drawing.Size(252, 23);
+            this.newOrderButton.TabIndex = 20;
+            this.newOrderButton.Text = "New Order";
+            this.newOrderButton.UseVisualStyleBackColor = true;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(661, 536);
+            this.Controls.Add(this.newOrderButton);
+            this.Controls.Add(this.invalidOrderLabel);
             this.Controls.Add(this.printReceiptButton);
             this.Controls.Add(this.changeOutput);
             this.Controls.Add(this.label1);
@@ -287,6 +309,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label changeOutput;
         private System.Windows.Forms.Button printReceiptButton;
+        private System.Windows.Forms.Label invalidOrderLabel;
+        private System.Windows.Forms.Button newOrderButton;
     }
 }
 

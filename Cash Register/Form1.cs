@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace Cash_Register
 {
     public partial class Form1 : Form
     {
+        //Identify all veriables
         const double BURGER_COST = 15.99;
         const double FRIES_COST = 9.99;
         const double DRINK_COST = 5.99;
@@ -24,44 +26,47 @@ namespace Cash_Register
         double total;
         double tendered;
         double change;
+        
         public Form1()
         {
             InitializeComponent();
-
+            newOrderButton.Visible = false;//make the newOrderButton hide
         }
 
         private void calculateTotalButton_Click(object sender, EventArgs e)
         {
-            Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
-            SolidBrush whiteBrush = new SolidBrush(Color.White);
+            Graphics formGraphics = this.CreateGraphics(); //Allow for graphics to be crated
+            SolidBrush whiteBrush = new SolidBrush(Color.White); //create brush for graphics
 
+            
             //convert all the textboxes to a variable
             burgerNumber = Convert.ToInt32(burgersInput.Text);
             fryNumber = Convert.ToInt32(friesInput.Text);
             drinkNumber = Convert.ToInt32(drinksInput.Text);
 
-            if (burgerNumber < 0)
+            if (burgerNumber < 0) //to handle poor input
             {
-                subTotalOutput.Text = "please imput whole numbers only";
-                taxOutput.Text = "please imput whole numbers only";
-                totalOutput.Text = "please imput whole numbers only";
+                subTotalOutput.Text = "plese input positive \nwhole numbers only";
+                taxOutput.Text = "";
+                totalOutput.Text = "";
             }
 
-            else if (fryNumber < 0)
+            else if (fryNumber < 0) //to handle poor input
             {
-                subTotalOutput.Text = "please imput whole numbers only";
-                taxOutput.Text = "please imput whole numbers only";
-                totalOutput.Text = "please imput whole numbers only";
+                subTotalOutput.Text = "plese input positive  \nwhole numbers only";
+                taxOutput.Text = "";
+                totalOutput.Text = "";
             }
 
-            else if (drinkNumber < 0)
+            else if (drinkNumber < 0) //to handle poor input
             {
-                subTotalOutput.Text = "please imput whole numbers only";
-                taxOutput.Text = "please imput whole numbers only";
-                totalOutput.Text = "please imput whole numbers only";
+                subTotalOutput.Text = "plese input positive  \nwhole numbers only";
+                taxOutput.Text = "";
+                totalOutput.Text = "";
             }
 
-            else if (burgerNumber >= 0)
+            //give subtotal, tax and total a value then post them on the cah register
+            else if (burgerNumber >= 0) 
             {
                 subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
                 subTotalOutput.Text = subtotal.ToString("C");
@@ -81,6 +86,7 @@ namespace Cash_Register
                 formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
             }
 
+            //give subtotal, tax and total a value then post them on the cah register
             else if (fryNumber >= 0)
             {
                 subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
@@ -101,7 +107,8 @@ namespace Cash_Register
                 formGraphics.FillRectangle(whiteBrush, 10, 260, 280, 10);
             }
 
-            else if (drinkNumber >= 0)
+            //give subtotal, tax and total a value then post them on the cah register
+            else if (drinkNumber >= 0) 
             {
                 subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
                 subTotalOutput.Text = subtotal.ToString("C");
@@ -124,11 +131,13 @@ namespace Cash_Register
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            tendered = Convert.ToDouble(tenderedInput.Text);
-            total = subtotal + tax;
+            tendered = Convert.ToDouble(tenderedInput.Text); //convert tenderedImput to a double
+            total = subtotal + tax; //give total a value
 
-            if (tendered > total)
-            { change = tendered - total;
+            //give change a value and handle poor input
+            if (tendered >= total)
+            {
+                change = tendered - total;
                 changeOutput.Text = change.ToString("C");
             }
             else
@@ -140,12 +149,87 @@ namespace Cash_Register
 
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
-            Graphics formGraphics = this.CreateGraphics(); //Alow fo graphiks ott bee crated
-            SolidBrush whiteBrush = new SolidBrush(Color.White);
+            SoundPlayer receiptSound = new SoundPlayer(Properties.Resources.receiptSound); //to desgnate the sound file
+            DateTime thisDay = DateTime.Today; //Get the current date.
+            Graphics formGraphics = this.CreateGraphics(); //Allow for graphics to be crated
+            SolidBrush whiteBrush = new SolidBrush(Color.White); //create a brush for graphics
+            SolidBrush blackBrush = new SolidBrush(Color.Black); //create a brush for graphics
+            Font Font = new Font("Consolas", 7, FontStyle.Bold); //create a font for graphics
+
+            if (tendered > total) // if tendered is more than total then draw the receipt with this statement, and play the sound
+            {
+                formGraphics.FillRectangle(whiteBrush, 300, 10, 187, 360);
+
+                receiptSound.Play();
+
+                formGraphics.DrawString("BLob's Burger Bananza", Font, blackBrush, 337, 25);
+
+                formGraphics.DrawString("Order Number 1034", Font, blackBrush, 305, 55);
+                Thread.Sleep(500);
+                formGraphics.DrawString(thisDay.ToString("D"), Font, blackBrush, 305, 65);
+                Thread.Sleep(500);
+
+                formGraphics.DrawString("Burgers", Font, blackBrush, 305, 95);
+                formGraphics.DrawString("x" + burgerNumber + " @ " + burgerNumber*BURGER_COST, Font, blackBrush, 375, 95);
+                Thread.Sleep(500);
+                formGraphics.DrawString("Fries", Font, blackBrush, 305, 105);
+                formGraphics.DrawString("x" + fryNumber + " @ " + fryNumber * FRIES_COST, Font, blackBrush, 375, 105);
+                Thread.Sleep(500);
+                formGraphics.DrawString("Drinks", Font, blackBrush, 305, 115);
+                formGraphics.DrawString("x" + drinkNumber + " @ " + drinkNumber * DRINK_COST, Font, blackBrush, 375, 115);
+                Thread.Sleep(500);
+
+                formGraphics.DrawString("Subtotal", Font, blackBrush, 305, 145);
+                formGraphics.DrawString("$" + subtotal, Font, blackBrush, 375, 145);
+                Thread.Sleep(500);
+                formGraphics.DrawString("Tax", Font, blackBrush, 305, 155);
+                formGraphics.DrawString("$" + tax, Font, blackBrush, 375, 155);
+                Thread.Sleep(500);
+                formGraphics.DrawString("Total", Font, blackBrush, 305, 165);
+                formGraphics.DrawString("$" + total, Font, blackBrush, 375, 165);
+                Thread.Sleep(500);
+
+                formGraphics.DrawString("Tendered", Font, blackBrush, 305, 195);
+                formGraphics.DrawString("$" + tendered, Font, blackBrush, 375, 195);
+                Thread.Sleep(500);
+                formGraphics.DrawString("Change", Font, blackBrush, 305, 205);
+                formGraphics.DrawString("$" + change, Font, blackBrush, 375, 205);
+                Thread.Sleep(500);
+
+                formGraphics.DrawString("Have a Nice Day!!", Font, blackBrush, 305, 235);
+
+                newOrderButton.Visible = true; //unhide the newOrder button
+            }
+
+            else if (total == 0) // this will happen if tendered is equal to 0
+            {
+                invalidOrderLabel.Text = "Invalid order, you must order something";
+            }
+            
+            else if (tendered < total) // this will happen if tendered is less than total
+            {
+                invalidOrderLabel.Text = "You must pay more than the total";
+            }
 
             
+        }
 
-            formGraphics.FillRectangle(whiteBrush, 300, 10, 187, 417);
+        private void newOrderButton_Click(object sender, EventArgs e)
+        {
+            Graphics formGraphics = this.CreateGraphics(); //Allow for graphics to be crated
+
+            //clear graphics and reset all labels
+            formGraphics.Clear(Color.Black);
+            burgersInput.Text = "0";
+            friesInput.Text = "0";
+            drinksInput.Text = "0";
+            subTotalOutput.Text = "";
+            taxOutput.Text = "";
+            totalOutput.Text = "";
+            tenderedInput.Text = "0";
+            changeOutput.Text = "";
+            
+            newOrderButton.Visible = false; //hide newOrder button
         }
     }
 }
