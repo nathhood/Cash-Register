@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Nathan Hood, October 14, 2016
+//This program is for a cah register at BLob's Burger Stand
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +28,7 @@ namespace Cash_Register
         double total;
         double tendered;
         double change;
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace Cash_Register
             Graphics formGraphics = this.CreateGraphics(); //Allow for graphics to be crated
             SolidBrush whiteBrush = new SolidBrush(Color.White); //create brush for graphics
 
-            
+
             //convert all the textboxes to a variable
             burgerNumber = Convert.ToInt32(burgersInput.Text);
             fryNumber = Convert.ToInt32(friesInput.Text);
@@ -66,7 +68,7 @@ namespace Cash_Register
             }
 
             //give subtotal, tax and total a value then post them on the cah register
-            else if (burgerNumber >= 0) 
+            else if (burgerNumber >= 0)
             {
                 subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
                 subTotalOutput.Text = subtotal.ToString("C");
@@ -108,7 +110,7 @@ namespace Cash_Register
             }
 
             //give subtotal, tax and total a value then post them on the cah register
-            else if (drinkNumber >= 0) 
+            else if (drinkNumber >= 0)
             {
                 subtotal = burgerNumber * BURGER_COST + fryNumber * FRIES_COST + drinkNumber * DRINK_COST;
                 subTotalOutput.Text = subtotal.ToString("C");
@@ -143,7 +145,6 @@ namespace Cash_Register
             else
             {
                 changeOutput.Text = "Not enough funds";
-
             }
         }
 
@@ -170,7 +171,7 @@ namespace Cash_Register
                 Thread.Sleep(500);
 
                 formGraphics.DrawString("Burgers", Font, blackBrush, 305, 95);
-                formGraphics.DrawString("x" + burgerNumber + " @ " + burgerNumber*BURGER_COST, Font, blackBrush, 375, 95);
+                formGraphics.DrawString("x" + burgerNumber + " @ " + burgerNumber * BURGER_COST, Font, blackBrush, 375, 95);
                 Thread.Sleep(500);
                 formGraphics.DrawString("Fries", Font, blackBrush, 305, 105);
                 formGraphics.DrawString("x" + fryNumber + " @ " + fryNumber * FRIES_COST, Font, blackBrush, 375, 105);
@@ -205,13 +206,11 @@ namespace Cash_Register
             {
                 invalidOrderLabel.Text = "Invalid order, you must order something";
             }
-            
+
             else if (tendered < total) // this will happen if tendered is less than total
             {
                 invalidOrderLabel.Text = "You must pay more than the total";
             }
-
-            
         }
 
         private void newOrderButton_Click(object sender, EventArgs e)
@@ -228,7 +227,7 @@ namespace Cash_Register
             totalOutput.Text = "";
             tenderedInput.Text = "0";
             changeOutput.Text = "";
-            
+
             newOrderButton.Visible = false; //hide newOrder button
         }
     }
